@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import User from 'src/users/entities/user.entity';
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 export enum Genre {
   develop = 'develop',
@@ -32,7 +32,7 @@ class Blog {
   @Column({ type: 'enum', enum: Genre })
   genre: Genre;
 
-  @OneToMany(() => User, (user) => user.blog)
+  @ManyToOne(() => User, (user) => user.blog)
   user: User;
 }
 
