@@ -3,11 +3,11 @@ import User from 'src/users/entities/user.entity';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 export enum Genre {
-  develop = 'desarrollo',
-  design = 'diseño',
-  lifestyle = 'estilo de vida',
-  technology = 'tecnologia',
-  programming = 'programacion',
+  develop = 'develop',
+  design = 'design',
+  lifestyle = 'lifestyle',
+  technology = 'technology',
+  programming = 'programming',
 }
 
 @Entity('blogs')
