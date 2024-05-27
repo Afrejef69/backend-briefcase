@@ -3,11 +3,11 @@ import User from 'src/users/entities/user.entity';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 export enum Genre {
-  develop = 'develop',
-  design = 'design',
-  lifestyle = 'lifestyle',
-  technology = 'technology',
-  programming = 'programming',
+  develop = 'desarrollo',
+  design = 'diseño',
+  lifestyle = 'estilo de vida',
+  technology = 'tecnologia',
+  programming = 'programacion',
 }
 
 @Entity('blogs')
@@ -30,6 +30,11 @@ class Blog {
   content: string;
 
   @Column({ type: 'enum', enum: Genre })
+  @ApiProperty({
+    description:
+      'The genre of the Blog, choices: develop, design, lifestyle, technology, programming',
+    example: 'desarrollo',
+  })
   genre: Genre;
 
   @ManyToOne(() => User, (user) => user.blog)
