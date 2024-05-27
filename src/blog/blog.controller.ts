@@ -35,6 +35,7 @@ export class BlogController {
   }
 
   @Post()
+  @IsPublic()
   async create(@Body(new ValidationPipe()) newBlog: CreateBlogDto) {
     const validationErrors = await newBlog.validateContent();
     if (validationErrors.length > 0) {
