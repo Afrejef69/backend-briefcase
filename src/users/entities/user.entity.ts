@@ -3,7 +3,7 @@ import {
   BeforeInsert,
   Column,
   Entity,
-  ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import * as bcrypt from 'bcrypt';
@@ -31,7 +31,7 @@ class User {
   @Column({ type: 'varchar', length: 255 })
   password: string;
 
-  @ManyToOne(() => Blog, (blog) => blog.user)
+  @OneToMany(() => Blog, (blog) => blog.user)
   blog: Blog[];
 
   @BeforeInsert()
