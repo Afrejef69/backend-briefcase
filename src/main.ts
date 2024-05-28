@@ -7,12 +7,19 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const port = process.env.PORT || 3001;
 
+  const allowedOrigins = [
+    'frontend-briefcase-oumd2lnjj-afrejef69s-projects.vercel.app',
+    'frontend-briefcase.vercel.app',
+  ];
+
   app.enableCors({
-    origin: [
-      'frontend-briefcase-oumd2lnjj-afrejef69s-projects.vercel.app',
-      'frontend-briefcase.vercel.app',
-    ],
-    credentials: true,
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
   });
 
   app.useGlobalPipes(
