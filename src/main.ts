@@ -8,8 +8,9 @@ async function bootstrap() {
   const port = process.env.PORT || 3001;
 
   const allowedOrigins = [
-    'frontend-briefcase-oumd2lnjj-afrejef69s-projects.vercel.app',
-    'frontend-briefcase.vercel.app',
+    'https://frontend-briefcase.vercel.app',
+    'https://frontend-briefcase-git-main-afrejef69s-projects.vercel.app',
+    'https://frontend-briefcase-5gnznj8qk-afrejef69s-projects.vercel.app',
   ];
 
   app.enableCors({
