@@ -7,19 +7,6 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const port = process.env.PORT || 3001;
 
-  // const allowedOrigins = [
-  //   'https://frontend-briefcase.vercel.app',
-  //   'https://frontend-briefcase-git-main-afrejef69s-projects.vercel.app',
-  //   'https://frontend-briefcase-9tcvgsvf1-afrejef69s-projects.vercel.app',
-  // ];
-  // (origin, callback) => {
-  //   if (!origin || allowedOrigins.includes(origin)) {
-  //     callback(null, true);
-  //   } else {
-  //     callback(new Error('Not allowed by CORS'));
-  //   }
-  // }
-
   app.enableCors({
     origin: '*',
     credentials: true,
